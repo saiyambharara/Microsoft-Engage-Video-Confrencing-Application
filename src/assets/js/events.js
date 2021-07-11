@@ -47,7 +47,7 @@ window.addEventListener( 'load', () => {
             let roomLink = `${ location.origin }?room=${ roomName.trim().replace( ' ', '_' ) }_${ helpers.generateRandomString() }`;
 
             //show message with link to room
-            document.querySelector( '#room-created' ).innerHTML = `<span style='color: white;'>Room successfully created. Click <a href='${ roomLink }'>here</a> to enter room. 
+            document.querySelector( '#room-created' ).innerHTML = `<span style='color: white;'>Room successfully created. Click <a href='${ roomLink }' style='color: red;'>here</a> to enter room. 
                 Share the room link with your partners.`;
 
             //empty the values
@@ -84,15 +84,15 @@ window.addEventListener( 'load', () => {
     } );
 
 
-    // document.addEventListener( 'click', ( e ) => {
-    //     if ( e.target && e.target.classList.contains( 'expand-remote-video' ) ) {
-    //         helpers.maximiseStream( e );
-    //     }
+    document.addEventListener( 'click', ( e ) => {
+        if ( e.target && e.target.classList.contains( 'expand-remote-video' ) ) {
+            helpers.maximiseStream( e );
+        }
 
-    //     else if ( e.target && e.target.classList.contains( 'mute-remote-mic' ) ) {
-    //         helpers.singleStreamToggleMute( e );
-    //     }
-    // } );
+        else if ( e.target && e.target.classList.contains( 'mute-remote-mic' ) ) {
+            helpers.singleStreamToggleMute( e );
+        }
+    } );
 
 
     document.getElementById( 'closeModal' ).addEventListener( 'click', () => {
